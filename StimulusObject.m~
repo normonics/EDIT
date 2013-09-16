@@ -14,8 +14,7 @@ classdef StimulusObject
                 
                 imagesc(frames(:,:,frame))
                 colormap('gray')
-                pause(1/obj.frameRate)
-            end
+                pause(1/obj.frameR
             
         end
         
