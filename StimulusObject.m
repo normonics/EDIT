@@ -8,7 +8,7 @@ classdef StimulusObject
     
     methods
         function [] = preview(obj)
-            frames = generate(obj)
+            frames = generate(obj);
             
             for frame = 1:obj.nFrames
                 

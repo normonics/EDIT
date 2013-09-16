@@ -23,16 +23,16 @@ classdef ExperimentalDesign
         
         % preview all stimulus conditions without responses
         function [] = preview(obj)
-            currentStimulus = eval([obj.stimulus])
+            currentStimulus = eval([obj.stimulus]);
             
             for trial = 1:size(obj.conditionsMatrix,1)
                currentCondition = obj.conditionsMatrix(trial,:);
                
                for stimulusParameter = 1:size(obj.conditionsMatrix,2)
                
-                   currentParameterLabel = obj.conditions{1,stimulusParameter}
+                   currentParameterLabel = obj.conditions{1,stimulusParameter};
                    
-                   eval(['currentStimulus.' currentParameterLabel '= currentCondition(stimulusParameter)'])
+                   eval(['currentStimulus.' currentParameterLabel '= currentCondition(stimulusParameter);'])
                    
                end
               
