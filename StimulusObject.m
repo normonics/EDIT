@@ -6,6 +6,14 @@ classdef StimulusObject
        frameRate = 2 % Hz
     end
     
+    methods
+        function [] = preview(obj)
+            
+            
+        end
+        
+    end
+    
     
     
 end
