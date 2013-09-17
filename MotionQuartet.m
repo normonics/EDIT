@@ -46,9 +46,6 @@ classdef MotionQuartet < StimulusObject
             end
             
             
-        end
-        
-        
-        
+        end       
     end
 end
