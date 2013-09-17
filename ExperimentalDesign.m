@@ -2,27 +2,26 @@
 classdef ExperimentalDesign
     
     properties
-        stimulus = ''
-        conditions = {}
-        nRepetitions = 1
+        stimulus = '' % directs to desired StimulusObject class
+        conditions = {} % list of specified stimulus parameters along with their desired value(s)
+        nRepetitions = 1 % number of times each unique condition is repeated
         shuffleMode = 'subblock'; % should be ablt to toggle between block and subblock shuffling, or perhaps custom order of some kind
-        responseStructure = {'any'}
-        saveFile = ''
+        responseStructure = {'any'} % specifies how many responses to collect after each trial and will eventually allow to constrain responses to specific keys
+        saveFile = '' % name of savefile for response output, currently only outputs to .mat format
     end
     
     properties(Dependent)
-        conditionsMatrix
+        conditionsMatrix % a matrix with all of the single trial condition values listed in rows
     end
     
     methods
-        % generate conditions matrix from inputted condition values
+        
         function conditionsMatrix = get.conditionsMatrix(obj)
             
             conditionsMatrix = allcomb(obj.conditions{2,:});
             
-        end
+        end % generate conditions matrix from inputted condition values
         
-        % preview all stimulus conditions without responses
         function [] = preview(obj)
             currentStimulus = eval([obj.stimulus]);
             
@@ -43,7 +42,7 @@ classdef ExperimentalDesign
             end
             
             
-        end
+        end  % preview all stimulus conditions without responses
         
         function [] = run(obj) % run the thing
             
