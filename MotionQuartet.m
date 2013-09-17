@@ -1,11 +1,11 @@
 classdef MotionQuartet < StimulusObject
     
     properties
-        horizontalDistance = 8
-        verticalDistance = 8
+        horizontalDistance = 40
+        verticalDistance = 40
         luminanceValues = [20 100]
         startOrientation = 0
-        elementSize = 3 % assume always odd for now
+        elementSize = 10 % assume always odd for now
         
     end
     

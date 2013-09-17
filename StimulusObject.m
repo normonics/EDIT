@@ -2,7 +2,7 @@ classdef StimulusObject
     
     properties
         location = [0,0] % in pixel values with respect to (approximate) center
-        nFrames = 2 % number of frames
+        nFrames = 10 % number of frames
         frameRate = 2 % Hz
     end
     
@@ -23,22 +23,22 @@ classdef StimulusObject
             frames = generate(obj);
             
             try
-                window = Screen('OpenWindow', 0)
+                window = Screen('OpenWindow', 0);
                 
                 
                 % make textures
                 for frame = 1:obj.nFrames
                     
-                    textures(frame) = Screen('MakeTexture', window, frames(:,:,frame))
+                    textures(frame) = Screen('MakeTexture', window, frames(:,:,frame));
                     
                 end
                 
                 
                 for frame = 1:obj.nFrames
                     
-                    Screen('DrawTexture', window, textures(frame))
+                    Screen('DrawTexture', window, textures(frame));
                     Screen('Flip', window);
-                    WaitSecs(1/obj.frameRate)
+                    WaitSecs(1/obj.frameRate);
                     
                 end
                 
