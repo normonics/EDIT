@@ -5,7 +5,7 @@ classdef ExperimentalDesign
         stimulus = ''
         conditions = {}
         nRepetitions = 1
-        shuffleMode = 'block'; % should be ablt to toggle between block and subblock shuffling, or perhaps custom order of some kind
+        shuffleMode = 'subblock'; % should be ablt to toggle between block and subblock shuffling, or perhaps custom order of some kind
         responseStructure = []
         saveFile = ''
     end
@@ -49,14 +49,30 @@ classdef ExperimentalDesign
             
             nConditions = size(obj.conditionsMatrix, 1); % calculate total number of unique conditions
             
-            trialOrder = Shuffle(kron([1:nConditions], ones(1,obj.nRepetitions))); % this shuffles the indices to the conditionsMatrix by the whole block
+            %shuffle based on shuffleMode
+            if strcmpi(obj.shuffleMode, 'block')
+            
+                trialOrder = Shuffle(kron([1:nConditions], ones(1,obj.nRepetitions))); % this shuffles the indices to the conditionsMatrix by the whole block
+            
+            elseif strcmpi(obj.shuffleMode, 'subblock')
+               trialOrder = [];
+              
+                for i = 1:obj.nRepetitions
+                    trialOrder = [trialOrder randperm(nConditions)];
+                end
+                
+            elseif strcmpi(obj.shuffleMode, 'off')
+                
+                trialOrder = [];
+              
+                for i = 1:obj.nRepetitions
+                    trialOrder = [trialOrder [1:nConditions]];
+                end
+                
+            end
             
             currentStimulus = eval([obj.stimulus]); % generate a stimulus object
-            
-            
-            
-            
-            
+             
             try
                 HideCursor
                 window = Screen('OpenWindow', 0);
