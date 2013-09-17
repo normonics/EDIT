@@ -6,7 +6,7 @@ classdef ExperimentalDesign
         conditions = {}
         nRepetitions = 1
         shuffleMode = 'subblock'; % should be ablt to toggle between block and subblock shuffling, or perhaps custom order of some kind
-        responseStructure = {'any'}
+        responseStructure = {'any', 'any'}
         saveFile = ''
     end
     
@@ -75,7 +75,6 @@ classdef ExperimentalDesign
             
             try
                 HideCursor
-                ListenChar(2)
                 window = Screen('OpenWindow', 0);
                 Screen('FillRect', window, 0)
                 Screen('Flip', window)
@@ -116,29 +115,23 @@ classdef ExperimentalDesign
                     Screen('Flip', window)
                     
                     % collect responses along with trial conditions
-                    conditionList{trial,1} = currentCondition;
+                    conditionList{trial,1} = currentCondition
                     
                     for responseNumber = 1:size(obj.responseStructure,2)
                         
-                        [secs, keyCode, deltaSecs] = KbStrokeWait;
-                        responses{trial,responseNumber} = KbName(keyCode);
-                         
+                        [secs, keyCode, deltaSecs] = KbStrokeWait
+                        responses{trial,responseNumber} = KbName(keyCode)
+                        
+                        
                     end
                   
-                WaitSecs(1); % give short delay before next stimulus is presented
-                
+                    
                 end
-                responses = [conditionList responses];
-                conditionLabels = obj.conditions(1,:);
-                save(obj.saveFile,'responses', 'conditionLabels')
-                
                 Screen('CloseAll');
                 ShowCursor
-                ListenChar(0)
             catch
                 Screen('CloseAll');
                 ShowCursor
-                ListenChar(0)
             end
             
             
