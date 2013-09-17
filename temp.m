@@ -1,15 +1,18 @@
-   clear;clc
+clear;clc
 
 x = ExperimentalDesign;
 
-x.saveFile = 'temp'          
-
 x.stimulus = 'MotionQuartet';
 
-x.conditions = {'nFrames', 'verticalDistance', 'horizontalDistance';...        
-    [4], [40 80],[40 80]};
+x.saveFile = 'temp';
+
+x.shuffleMode = 'block';
+
+x.responseStructure = {'any', 'any'};
+
+x.conditions = {'nFrames', 'verticalDistance', 'horizontalDistance';...
+                [4],        [40 80],            [40 80]};
 
 x.nRepetitions = 1;
 
-
-run(x)                                                                                                                      
+run(x)
