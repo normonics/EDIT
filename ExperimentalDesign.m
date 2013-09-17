@@ -5,6 +5,7 @@ classdef ExperimentalDesign
        stimulus = ''
        conditions = {}
        nRepetitions
+       shuffleMode % should be ablt to toggle between block and subblock shuffling, or perhaps custom order of some kind
        responseStructure = []
        saveFile = '' 
     end
@@ -45,10 +46,6 @@ classdef ExperimentalDesign
         end
         
     end
-    
-    
-    
-    
-    
+
 end  
     
