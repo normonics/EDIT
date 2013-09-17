@@ -58,7 +58,11 @@ classdef ExperimentalDesign
             
             
             try
+                HideCursor
                 window = Screen('OpenWindow', 0);
+                Screen('FillRect', window, 0)
+                Screen('Flip', window)
+                KbWait
                 
                 for trial = 1:nConditions*obj.nRepetitions
                     
@@ -91,13 +95,16 @@ classdef ExperimentalDesign
                         
                     end
                     
+                    Screen('FillRect', window, 0)
+                    Screen('Flip', window)
                     KbWait % collect response here
                     
                 end
                 Screen('CloseAll');
+                ShowCursor
             catch
                 Screen('CloseAll');
-                
+                ShowCursor
             end
             
             

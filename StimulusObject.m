@@ -24,7 +24,7 @@ classdef StimulusObject
             
             try
                 window = Screen('OpenWindow', 0);
-                
+                Screen('FillRect', window, 0);
                 
                 % make textures
                 for frame = 1:obj.nFrames
