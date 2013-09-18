@@ -10,8 +10,8 @@ x.shuffleMode = 'block';
 
 x.responseStructure = {'any', 'any'};
 
-x.conditions = {'nFrames', 'verticalDistance', 'horizontalDistance';...
-                [4],        [40 80],            [40 80]};
+x.conditions = {'nFrames', 'verticalDistance', 'horizontalDistance', 'frameRate';...
+                [4],        [40 80],            [40 80],             [2 8]}
 
 x.nRepetitions = 1;
 
