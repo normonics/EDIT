@@ -2,7 +2,7 @@ classdef StimulusObject
     
     properties
         location = [0,0] % in pixel values with respect to (approximate) center
-        nFrames = 10 % number of frames
+        nFrames = 20 % number of frames
         frameRate = 2 % Hz
     end
     

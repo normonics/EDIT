@@ -47,12 +47,5 @@ classdef MotionQuartet < StimulusObject
             
             
         end
-        
-        
-        function obj = set.luminanceValues(obj,luminanceValues)
-            for i = 1:numel(obj)
-                obj(i).luminanceValues = luminanceValues;
-            end
-        end
     end
 end
